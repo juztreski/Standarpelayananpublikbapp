@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standar Pelayanan — BAPPELITBANGDA Kabupaten Soppeng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest-950:#122620;
+    --forest-900:#16302B;
+    --forest-800:#1E4038;
+    --forest-700:#2B5A4D;
+    --sage:#6E8E7F;
+    --brass:#B08A34;
+    --brass-light:#D8B15E;
+    --cream:#F6F0E2;
+    --cream-2:#EFE7D3;
+    --paper:#FCFAF3;
+    --ink:#1B231F;
+    --ink-soft:#4B564F;
+    --line:rgba(27,35,31,0.12);
+    --line-dark:rgba(246,240,226,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Fraunces',serif;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:600;
+  }
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
+  a{color:inherit;}
+
+  /* ===== NAV ===== */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(18,38,32,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav-inner{
+    max-width:1160px;margin:0 auto;padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;
+    color:var(--cream);
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid var(--brass-light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;font-weight:600;font-size:0.95rem;color:var(--brass-light);
+    flex-shrink:0;
+  }
+  .brand-text{line-height:1.15;}
+  .brand-text .t1{font-size:0.82rem;font-weight:600;letter-spacing:0.02em;}
+  .brand-text .t2{font-size:0.68rem;color:var(--sage);font-family:'IBM Plex Mono',monospace;}
+  nav.links{display:flex;gap:26px;font-size:0.85rem;}
+  nav.links a{text-decoration:none;color:var(--cream-2);opacity:0.85;transition:opacity .2s;white-space:nowrap;}
+  nav.links a:hover{opacity:1;color:var(--brass-light);}
+  @media (max-width:860px){ nav.links{display:none;} }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;overflow:hidden;
+    background:radial-gradient(120% 140% at 15% -10%, #1E4038 0%, #16302B 45%, #122620 100%);
+    color:var(--cream);
+    padding:86px 0 70px;
+  }
+  .hero-flock{
+    position:absolute;inset:0;opacity:0.16;pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.25fr 0.85fr;gap:56px;align-items:end;position:relative;z-index:2;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero-eyebrow{color:var(--brass-light);margin-bottom:18px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .hero-eyebrow .pipe{opacity:0.4;}
+  .hero h1{
+    font-size:clamp(2.3rem, 4.4vw, 3.6rem);
+    font-weight:600;line-height:1.05;margin:0 0 22px;letter-spacing:-0.01em;
+  }
+  .hero h1 em{font-style:italic;color:var(--brass-light);font-weight:500;}
+  .hero p.lede{font-size:1.05rem;line-height:1.65;color:var(--cream-2);max-width:56ch;margin:0 0 30px;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:0.88rem;
+    padding:13px 24px;border-radius:3px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease, background .2s;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:var(--brass-light);color:var(--forest-950);}
+  .btn-primary:hover{transform:translateY(-2px);background:#e8c477;}
+  .btn-ghost{border-color:var(--line-dark);color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--brass-light);color:var(--brass-light);}
+
+  /* seal card */
+  .seal-card{
+    background:rgba(246,240,226,0.05);
+    border:1px solid var(--line-dark);
+    border-radius:6px;
+    padding:26px 26px 24px;
+    position:relative;z-index:2;
+  }
+  .seal-badge{
+    width:76px;height:76px;border-radius:50%;
+    border:1.5px dashed var(--brass-light);
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--brass-light);
+    line-height:1.3;margin-bottom:18px;padding:6px;
+  }
+  .seal-card .maklumat-label{font-size:0.72rem;color:var(--sage);text-transform:uppercase;letter-spacing:0.1em;font-family:'IBM Plex Mono',monospace;margin-bottom:10px;}
+  .seal-card p{font-family:'Fraunces',serif;font-style:italic;font-size:1.02rem;line-height:1.55;color:var(--cream);margin:0 0 14px;}
+  .seal-card .sig{font-size:0.8rem;color:var(--cream-2);}
+  .seal-card .sig b{color:var(--brass-light);font-weight:600;}
+
+  /* ===== STATS STRIP ===== */
+  .stats{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);
+  }
+  .stat{
+    padding:30px 28px;border-right:1px solid var(--line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat .num{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;color:var(--forest-800);}
+  .stat .lbl{font-size:0.8rem;color:var(--ink-soft);margin-top:4px;}
+  @media (max-width:760px){ .stats-grid{grid-template-columns:repeat(2,1fr);} .stat{border-bottom:1px solid var(--line);} }
+
+  /* ===== SECTION GENERIC ===== */
+  section{padding:78px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head .eyebrow{margin-bottom:12px;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:600;margin:0 0 14px;line-height:1.15;}
+  .section-head p{color:var(--ink-soft);line-height:1.6;font-size:1rem;margin:0;}
+
+  /* ===== TWO PATHS ===== */
+  .paths{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  @media (max-width:800px){ .paths{grid-template-columns:1fr;} }
+  .path-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:8px;
+    padding:32px 30px;position:relative;overflow:hidden;
+  }
+  .path-card.langsung{border-top:4px solid var(--forest-700);}
+  .path-card.tidak{border-top:4px solid var(--brass);}
+  .path-tag{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;display:block;}
+  .path-card h3{font-size:1.5rem;margin:0 0 12px;font-weight:600;}
+  .path-card p{color:var(--ink-soft);line-height:1.6;margin:0 0 18px;font-size:0.95rem;}
+  .path-card .path-count{font-family:'Fraunces',serif;font-size:2.6rem;font-weight:600;color:var(--forest-800);line-height:1;}
+  .path-card.tidak .path-count{color:var(--brass);}
+  .path-card .path-count-lbl{font-size:0.8rem;color:var(--ink-soft);margin-top:4px;}
+
+  /* ===== FLOW ===== */
+  .flow-dark{background:var(--forest-900);color:var(--cream);}
+  .flow-dark .section-head p{color:var(--cream-2);}
+  .flow-dark .section-head h2{color:var(--cream);}
+  .flow-list{
+    display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+    border:1px solid var(--line-dark);border-radius:8px;overflow:hidden;
+  }
+  @media (max-width:980px){ .flow-list{grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:600px){ .flow-list{grid-template-columns:1fr;} }
+  .flow-step{
+    padding:26px 20px;border-right:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);
+    position:relative;
+  }
+  .flow-step .fn{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--brass-light);font-weight:600;}
+  .flow-step h4{margin:10px 0 8px;font-size:0.95rem;font-weight:600;}
+  .flow-step p{margin:0;font-size:0.82rem;color:var(--sage);line-height:1.5;}
+
+  /* ===== SERVICE ACCORDION ===== */
+  .bidang-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px;}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;padding:7px 14px;border-radius:20px;
+    border:1px solid var(--line);color:var(--ink-soft);cursor:pointer;background:var(--paper);
+    transition:all .15s;
+  }
+  .chip.active,.chip:hover{border-color:var(--forest-700);color:var(--forest-800);background:#e9e2cd;}
+
+  .svc{
+    border:1px solid var(--line);border-radius:8px;margin-bottom:14px;background:var(--paper);
+    overflow:hidden;
+  }
+  .svc-head{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:20px 24px;cursor:pointer;
+  }
+  .svc-head-left{display:flex;align-items:center;gap:16px;}
+  .svc-no{font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--brass);width:26px;flex-shrink:0;}
+  .svc-title h3{margin:0 0 4px;font-size:1.08rem;font-weight:600;font-family:'Inter',sans-serif;}
+  .svc-tags{display:flex;gap:8px;flex-wrap:wrap;}
+  .tag{font-size:0.68rem;font-family:'IBM Plex Mono',monospace;padding:3px 9px;border-radius:12px;background:var(--cream-2);color:var(--ink-soft);}
+  .tag.bidang{background:#dfe9e3;color:var(--forest-800);}
+  .svc-toggle{
+    width:30px;height:30px;border-radius:50%;border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    font-size:1rem;color:var(--forest-800);transition:transform .25s;
+  }
+  .svc.open .svc-toggle{transform:rotate(45deg);}
+  .svc-body{
+    max-height:0;overflow:hidden;transition:max-height .35s ease;
+    border-top:1px solid transparent;
+  }
+  .svc.open .svc-body{border-top:1px solid var(--line);}
+  .svc-body-inner{padding:26px 24px 30px;display:grid;grid-template-columns:repeat(2,1fr);gap:26px 32px;}
+  @media (max-width:760px){ .svc-body-inner{grid-template-columns:1fr;} }
+  .field-label{
+    font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:8px;display:flex;align-items:center;gap:6px;
+  }
+  .field-body{font-size:0.9rem;line-height:1.55;color:var(--ink);}
+  .field-body ul{margin:0;padding-left:18px;}
+  .field-body li{margin-bottom:4px;}
+  .field-full{grid-column:1/-1;}
+  .field-highlight{
+    background:var(--cream-2);border-radius:6px;padding:14px 16px;
+  }
+  .field-highlight .field-body{color:var(--forest-800);font-weight:500;}
+
+  /* ===== TIDAK LANGSUNG ===== */
+  .indirect-note{
+    background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--brass);
+    border-radius:6px;padding:18px 22px;margin-bottom:30px;font-size:0.9rem;line-height:1.6;color:var(--ink-soft);
+  }
+  .indirect-table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .indirect-table th{
+    text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--ink-soft);padding:14px 20px;background:var(--cream-2);border-bottom:1px solid var(--line);
+  }
+  .indirect-table td{padding:14px 20px;border-bottom:1px solid var(--line);font-size:0.9rem;}
+  .indirect-table tr:last-child td{border-bottom:none;}
+  .indirect-table td.idx{font-family:'IBM Plex Mono',monospace;color:var(--brass);width:36px;}
+
+  /* ===== PENGADUAN ===== */
+  .complaint-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:820px){ .complaint-grid{grid-template-columns:1fr;} }
+  .complaint-card{
+    background:var(--forest-900);color:var(--cream);border-radius:8px;padding:28px 24px;
+    border:1px solid var(--line-dark);
+  }
+  .complaint-card .ic{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--brass-light);display:flex;align-items:center;justify-content:center;margin-bottom:16px;color:var(--brass-light);font-family:'Fraunces',serif;}
+  .complaint-card h4{margin:0 0 8px;font-size:1.02rem;font-weight:600;}
+  .complaint-card p{margin:0;font-size:0.86rem;color:var(--cream-2);line-height:1.55;}
+  .complaint-card a{color:var(--brass-light);text-decoration:underline;}
+  .complaint-flow{margin-top:34px;display:flex;gap:0;align-items:stretch;flex-wrap:wrap;}
+  .cflow-step{
+    flex:1;min-width:150px;background:var(--paper);border:1px solid var(--line);padding:18px 16px;text-align:center;
+    position:relative;
+  }
+  .cflow-step:not(:last-child)::after{
+    content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--brass);font-size:1.1rem;z-index:2;
+  }
+  @media (max-width:700px){ .cflow-step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-16px;transform:translateX(-50%);} }
+  .cflow-step .fn{font-family:'IBM Plex Mono',monospace;color:var(--brass);font-size:0.75rem;}
+  .cflow-step .ft{font-size:0.85rem;font-weight:600;margin-top:6px;}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--forest-950);color:var(--cream-2);padding:56px 0 30px;}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:44px;}
+  @media (max-width:760px){ .foot-grid{grid-template-columns:1fr;} }
+  .foot-grid h5{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--brass-light);margin:0 0 14px;}
+  .foot-grid p, .foot-grid li{font-size:0.87rem;line-height:1.7;color:var(--cream-2);}
+  .foot-grid ul{list-style:none;padding:0;margin:0;}
+  .foot-bottom{border-top:1px solid var(--line-dark);padding-top:22px;font-size:0.78rem;color:var(--sage);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  ::selection{background:var(--brass-light);color:var(--forest-950);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">BP</div>
+      <div class="brand-text">
+        <div class="t1">BAPPELITBANGDA</div>
+        <div class="t2">KAB. SOPPENG</div>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="#jenis">Jenis Layanan</a>
+      <a href="#langsung">Layanan Langsung</a>
+      <a href="#tidak-langsung">Layanan Tidak Langsung</a>
+      <a href="#pengaduan">Pengaduan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-flock" viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <g fill="#F6F0E2">
+      <path d="M120 90 C100 70 70 65 50 75 C65 80 78 90 85 100 C70 96 55 98 45 108 C62 106 76 112 85 122 C90 108 105 98 120 90 Z"/>
+      <path d="M320 60 C300 40 270 35 250 45 C265 50 278 60 285 70 C270 66 255 68 245 78 C262 76 276 82 285 92 C290 78 305 68 320 60 Z"/>
+      <path d="M560 130 C540 110 510 105 490 115 C505 120 518 130 525 140 C510 136 495 138 485 148 C502 146 516 152 525 162 C530 148 545 138 560 130 Z"/>
+      <path d="M820 75 C800 55 770 50 750 60 C765 65 778 75 785 85 C770 81 755 83 745 93 C762 91 776 97 785 107 C790 93 805 83 820 75 Z"/>
+      <path d="M1040 140 C1020 120 990 115 970 125 C985 130 998 140 1005 150 C990 146 975 148 965 158 C982 156 996 162 1005 172 C1010 158 1025 148 1040 140 Z"/>
+    </g>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-eyebrow eyebrow">
+        <span>KEPUTUSAN KEPALA BADAN NO. 050/12/BAP/I/2026</span>
+        <span class="pipe">/</span>
+        <span>DITETAPKAN 2 JANUARI 2026</span>
+      </div>
+      <h1>Standar Pelayanan <em>BAPPELITBANGDA</em><br>Kabupaten Soppeng</h1>
+      <p class="lede">Panduan resmi jenis-jenis pelayanan Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah — mencakup layanan langsung kepada masyarakat maupun layanan tidak langsung, lengkap dengan persyaratan, prosedur, waktu, biaya, hingga jalur pengaduan.</p>
+      <div class="hero-cta">
+        <a href="#jenis" class="btn btn-primary">Lihat Jenis Pelayanan ↓</a>
+        <a href="#pengaduan" class="btn btn-ghost">Cara Mengadu</a>
+      </div>
+    </div>
+    <div class="seal-card">
+      <div class="seal-badge">MAKLUMAT<br>PELAYANAN</div>
+      <div class="maklumat-label">Janji Layanan Kepala Badan</div>
+      <p>"Kami sanggup menyelenggarakan pelayanan perencanaan pembangunan sesuai standar dan kualitas pelayanan. Jika kami tidak menepati janji ini, kami siap menerima sanksi sesuai ketentuan yang berlaku."</p>
+      <div class="sig"><b>Andi Agus Nongki, S.IP., M.Si.</b><br>Kepala Badan, Pembina Utama Muda</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="num">2</div><div class="lbl">Kategori pelayanan</div></div>
+    <div class="stat"><div class="num">9</div><div class="lbl">Layanan langsung ke masyarakat</div></div>
+    <div class="stat"><div class="num">11</div><div class="lbl">Layanan tidak langsung (kepegawaian)</div></div>
+    <div class="stat"><div class="num">Gratis</div><div class="lbl">Seluruh layanan tanpa biaya</div></div>
+  </div>
+</div>
+
+<section id="jenis">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Dua Jenis Pelayanan</span>
+      <h2>Bagaimana BAPPELITBANGDA melayani</h2>
+      <p>Berdasarkan Lampiran Keputusan Kepala Badan, seluruh pelayanan BAPPELITBANGDA Kabupaten Soppeng dibagi menjadi dua jalur utama, dibedakan dari siapa penerima manfaat langsungnya.</p>
+    </div>
+    <div class="paths">
+      <div class="path-card langsung">
+        <span class="path-tag">Untuk masyarakat &amp; perangkat daerah</span>
+        <h3>Pelayanan Langsung Kepada Masyarakat</h3>
+        <p>Layanan yang berinteraksi langsung dengan warga, pemohon data, maupun perangkat daerah lain — mulai dari konsultasi, pengaduan, pelaporan inovasi, hingga proses perencanaan pembangunan seperti Musrenbang.</p>
+        <div class="path-count">09</div>
+        <div class="path-count-lbl">jenis standar pelayanan · lihat detail lengkap di bawah</div>
+      </div>
+      <div class="path-card tidak">
+        <span class="path-tag">Untuk internal ASN Bappelitbangda</span>
+        <h3>Pelayanan Tidak Langsung Kepada Masyarakat</h3>
+        <p>Layanan administrasi kepegawaian internal — pengurusan kenaikan pangkat, gaji berkala, pensiun, hingga berbagai jenis cuti — yang menunjang kelancaran organisasi meski tidak diakses publik secara langsung.</p>
+        <div class="path-count">11</div>
+        <div class="path-count-lbl">jenis layanan kepegawaian · dikelola Sekretariat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow-dark">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Alur Umum</span>
+      <h2>Proses Penyampaian Pelayanan (Service Delivery)</h2>
+      <p>Setiap standar pelayanan di lingkup Bappelitbangda disusun mengikuti enam komponen yang sama — inilah alur yang akan Anda temui pada tiap layanan di bawah.</p>
+    </div>
+    <div class="flow-list">
+      <div class="flow-step"><div class="fn">01</div><h4>Persyaratan</h4><p>Dokumen &amp; identitas yang wajib dibawa pemohon.</p></div>
+      <div class="flow-step"><div class="fn">02</div><h4>Sistem &amp; Prosedur</h4><p>Tahapan mekanisme dari pengajuan hingga selesai.</p></div>
+      <div class="flow-step"><div class="fn">03</div><h4>Jangka Waktu</h4><p>Estimasi lama proses layanan diselesaikan.</p></div>
+      <div class="flow-step"><div class="fn">04</div><h4>Biaya/Tarif</h4><p>Seluruh layanan Bappelitbangda tidak dipungut biaya.</p></div>
+      <div class="flow-step"><div class="fn">05</div><h4>Produk Layanan</h4><p>Output atau hasil akhir yang diterima pemohon.</p></div>
+      <div class="flow-step"><div class="fn">06</div><h4>Penanganan Pengaduan</h4><p>Kanal untuk menyampaikan keluhan, saran, dan masukan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="langsung">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pelayanan Langsung Kepada Masyarakat</span>
+      <h2>9 Standar Pelayanan Publik</h2>
+      <p>Klik tiap layanan untuk melihat rincian persyaratan, prosedur, jangka waktu, biaya, produk layanan, dan kanal pengaduannya.</p>
+    </div>
+
+    <div class="bidang-filter" id="filterBar">
+      <div class="chip active" data-f="all">Semua Bidang</div>
+      <div class="chip" data-f="Semua Bagian">Semua Bagian</div>
+      <div class="chip" data-f="Bidang Perencanaan">Bidang Perencanaan</div>
+      <div class="chip" data-f="Bidang Pemerintahan">Bidang Pemerintahan</div>
+      <div class="chip" data-f="Bidang Penelitian">Bidang Penelitian</div>
+      <div class="chip" data-f="Sekretariat">Sekretariat</div>
+    </div>
+
+    <div id="svcList"></div>
+  </div>
+</section>
+
+<section id="tidak-langsung" style="background:var(--cream-2);">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pelayanan Tidak Langsung Kepada Masyarakat</span>
+      <h2>11 Layanan Administrasi Kepegawaian</h2>
+      <p>Dikelola oleh Sekretariat, layanan ini melayani pegawai internal Bappelitbangda, bukan masyarakat umum.</p>
+    </div>
+    <div class="indirect-note">
+      Seluruh layanan ini mengikuti alur yang sama: pegawai mengajukan surat permohonan/kelengkapan berkas → diproses Subbagian Umum dan Kepegawaian → mendapat persetujuan Kepala Bappelitbangda. Waktu layanan berkisar <b>15–30 menit</b>, tanpa biaya, dengan pengaduan dapat disampaikan langsung atau melalui email <b>bappelitbangda663@gmail.com</b> serta aplikasi SP4N-LAPOR.
+    </div>
+    <table class="indirect-table">
+      <thead><tr><th>No.</th><th>Nama Layanan</th><th>Penanggung Jawab</th></tr></thead>
+      <tbody id="indirectBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="pengaduan">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Layanan Pengaduan</span>
+      <h2>Menyampaikan keluhan, saran & masukan</h2>
+      <p>Bappelitbangda menyediakan beberapa kanal resmi bagi masyarakat maupun pegawai untuk berkonsultasi atau mengadukan pelayanan yang diterima.</p>
+    </div>
+    <div class="complaint-grid">
+      <div class="complaint-card">
+        <div class="ic">✎</div>
+        <h4>Tatap Muka Langsung</h4>
+        <p>Datang ke meja pengaduan Bappelitbangda, mengisi formulir pengaduan dengan data diri yang jelas dan dapat dipertanggungjawabkan.</p>
+      </div>
+      <div class="complaint-card">
+        <div class="ic">@</div>
+        <h4>Email Resmi</h4>
+        <p>Kirimkan pengaduan atau konsultasi ke <a href="mailto:bappelitbangda663@gmail.com">bappelitbangda663@gmail.com</a> — kanal utama untuk seluruh jenis layanan.</p>
+      </div>
+      <div class="complaint-card">
+        <div class="ic">☎</div>
+        <h4>WhatsApp &amp; Aplikasi SP4N-LAPOR</h4>
+        <p>Beberapa layanan (peminjaman ruang, permintaan data) juga menerima pengaduan via WhatsApp 085 255 283 177, serta melalui Aplikasi Pengaduan SP4N-LAPOR.</p>
+      </div>
+    </div>
+
+    <div class="complaint-flow">
+      <div class="cflow-step"><div class="fn">01</div><div class="ft">Pemohon mengajukan pengaduan</div></div>
+      <div class="cflow-step"><div class="fn">02</div><div class="ft">Melengkapi formulir/keterangan</div></div>
+      <div class="cflow-step"><div class="fn">03</div><div class="ft">Petugas memproses pengaduan</div></div>
+      <div class="cflow-step"><div class="fn">04</div><div class="ft">Tanggapan resmi maks. 10 hari kerja (dapat diperpanjang 7 hari kerja)</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="kontak">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h5>Bappelitbangda Kabupaten Soppeng</h5>
+        <p>Jalan Salotungo, Watansoppeng, Sulawesi Selatan, 90812<br>
+        Telepon / Faksimile: (0484) 21046<br>
+        Email: bappelitbangda663@gmail.com</p>
+      </div>
+      <div>
+        <h5>Dasar Hukum Utama</h5>
+        <ul>
+          <li>UU No. 25 Tahun 2009 — Pelayanan Publik</li>
+          <li>Permenpan RB No. 15 Tahun 2014 — Pedoman Standar Pelayanan</li>
+          <li>Perda Soppeng No. 15 Tahun 2017 — Penyelenggaraan Pelayanan Publik</li>
+          <li>Perbup Soppeng No. 41 Tahun 2023 — Tugas &amp; Fungsi Bappelitbangda</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Ditetapkan Oleh</h5>
+        <p><b style="color:var(--cream)">Andi Agus Nongki, S.IP., M.Si.</b><br>
+        Kepala Badan Perencanaan Pembangunan, Penelitian dan Pengembangan Daerah<br>
+        Pembina Utama Muda · NIP. 19710817 199101 1 001<br>
+        Watansoppeng, 2 Januari 2026</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Ringkasan Lampiran Keputusan Kepala Badan Nomor 050/12/Bap/I/2026</span>
+      <span>Halaman ini disusun sebagai media informasi, bukan dokumen hukum resmi.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const services = [
+  {
+    no:1, bidang:"Semua Bagian", title:"Layanan Konsultasi",
+    persyaratan:["Membawa Kartu Pegawai Negeri Sipil/Kartu Identitas lain","Berpakaian dinas/kemeja","Membawa bahan/dokumen yang akan dikonsultasikan"],
+    prosedur:["Menghubungi langsung petugas layanan konsultasi atau via online","Petugas menghubungi dan mengecek kesiapan kasubag atau pegawai yang ditunjuk","Petugas memberitahukan kesiapan dan kesediaan menerima kepada pengguna layanan","Kasubag/staf yang ditunjuk memberikan penjelasan dan informasi terkait hal yang dikonsultasikan","Diteruskan ke atasan langsung atau difasilitasi koordinasi ke tingkat provinsi bila perlu konsultasi lanjutan"],
+    waktu:"15 – 30 menit", biaya:"Gratis",
+    produk:"Pemahaman & kejelasan bidang Perencanaan-Pengendalian-Evaluasi Pembangunan (RPJMD & partisipasi masyarakat), bidang Pemerintahan-Pembangunan Manusia (RKPD), serta bidang Penelitian & Pengembangan (rekomendasi penelitian & inovasi pelayanan publik).",
+    pengaduan:"Pengaduan & konsultasi langsung, atau online melalui email bappelitbangda663@gmail.com"
+  },
+  {
+    no:2, bidang:"Semua Bagian", title:"Layanan Pengaduan",
+    persyaratan:["Mengisi formulir yang telah disediakan dengan mencantumkan data diri/identitas yang jelas dan dapat dipertanggungjawabkan"],
+    prosedur:["Pemohon mengajukan pengaduan dengan hadir di meja pengaduan","Pemohon melengkapi persyaratan dan menulis pengaduan di formulir pengaduan","Petugas menyelesaikan pengaduan","Petugas memberikan tanggapan atas pengaduan pelayanan publik secara resmi"],
+    waktu:"Maks. 10 hari kerja sejak permintaan diterima, dapat diperpanjang maks. 7 hari kerja", biaya:"Gratis",
+    produk:"Tanggapan resmi atas pengaduan pelayanan publik, disampaikan langsung, telepon, WhatsApp, atau email.",
+    pengaduan:"Pengaduan & konsultasi langsung, atau online melalui email bappelitbangda663@gmail.com"
+  },
+  {
+    no:3, bidang:"Bidang Penelitian", title:"Layanan Pelaporan Inovasi Daerah",
+    persyaratan:["SKPD yang dipilih sebagai laboratorium uji coba menyampaikan laporan secara berkala terhadap tahapan pelaksanaan uji coba Inovasi Daerah"],
+    prosedur:["Inovasi Daerah ditetapkan berdasarkan minat masyarakat terhadap implementasinya","Inovasi Daerah yang ditetapkan adalah inovasi yang telah melalui tahap uji coba"],
+    waktu:"30 menit", biaya:"Tidak dipungut biaya",
+    produk:"Persetujuan Inovasi Daerah; pemahaman bidang Penelitian & Pengembangan Daerah melalui Tim Verifikasi dan Tim Penyusun Inovasi.",
+    pengaduan:"Contact Person 085145172407, atau email bappelitbangda663@gmail.com"
+  },
+  {
+    no:4, bidang:"Bidang Perencanaan", title:"Asistensi & Verifikasi Dokumen Perencanaan Perangkat Daerah",
+    persyaratan:["RPJMD Kabupaten","Rancangan Renstra SKPD","Rancangan RKPD"],
+    prosedur:["Renstra diasistensi dan diverifikasi agar sesuai dengan RPJMD","Setelah diasistensi & diverifikasi, Tim Asistensi menerbitkan Lembar Persetujuan","Lembar Persetujuan ditandatangani oleh Kepala Bappelitbangda"],
+    waktu:"30 menit", biaya:"Tidak dipungut biaya",
+    produk:"Persetujuan penyusunan Renstra SKPD; pemahaman bidang Perencanaan, Pengendalian & Evaluasi Pembangunan Daerah melalui Tim Penyusun Renstra.",
+    pengaduan:"Contact Person 085 341 670 571, atau email bappelitbangda663@gmail.com"
+  },
+  {
+    no:5, bidang:"Bidang Perencanaan", title:"Penyelenggaraan Musrenbang",
+    persyaratan:["Dokumen usulan, kelengkapan administrasi, serta unsur kelembagaan/masyarakat yang wajib hadir sesuai tingkatannya (desa/kelurahan atau kecamatan)","Dokumen hasil pra-musyawarah: daftar usulan/prioritas program dari tingkat bawah (rembuk warga/musyawarah)"],
+    prosedur:["Forum tahunan menyerap aspirasi warga dari tingkat RT/RW","Menyaring prioritas kegiatan fisik maupun nonfisik","Menyelaraskan usulan dengan arah kebijakan pembangunan daerah untuk diusulkan ke tingkat kecamatan"],
+    waktu:"30 menit", biaya:"Tidak dipungut biaya",
+    produk:"Dokumen Musrenbang Daerah; pemahaman bidang Perencanaan melalui pelayanan partisipasi masyarakat dan Tim Penyusun Musrenbang.",
+    pengaduan:"Contact Person 085 341 670 571, atau email bappelitbangda663@gmail.com"
+  },
+  {
+    no:6, bidang:"Bidang Pemerintahan", title:"Pemantauan dan Evaluasi Kinerja Perangkat Daerah",
+    persyaratan:["Permohonan resmi dan dokumen perencanaan lengkap (Renstra, Renja, Perjanjian Kinerja/PK, Dokumen Pelaksanaan Anggaran/DPA)","Data capaian target fisik dan keuangan berkala yang diinput melalui sistem pelaporan/aplikasi instansi"],
+    prosedur:["Mengacu pada pengukuran sistematis pencapaian target perencanaan strategis (Renstra, Renja) berlandaskan kerangka SAKIP","Memadukan data perencanaan, penganggaran, dan pelaporan berkala untuk menilai keselarasan anggaran dengan hasil pembangunan"],
+    waktu:"30 menit", biaya:"Tidak dipungut biaya",
+    produk:"Laporan Pemantauan & Evaluasi Kinerja Perangkat Daerah — mencakup Indikator Kinerja Utama (IKU), Perjanjian Kinerja (PK), dan Laporan Kinerja (LKj).",
+    pengaduan:"Contact Person 085 341 670 571, atau email bappelitbangda663@gmail.com"
+  },
+  {
+    no:7, bidang:"Sekretariat", title:"Penanganan Surat Masuk dan Surat Keluar",
+    persyaratan:["Membawa kartu identitas","Berpakaian rapi","Membawa dokumen atau surat"],
+    prosedur:["Surat Masuk: pengadministrasi menerima surat, memberi tanda terima, mencatat kontak person, memberi lembar disposisi, mencatat nomor agenda, lalu diteruskan ke Sekretaris → Kepala Badan untuk disposisi","Surat Keluar: memeriksa kelengkapan, memberi nomor surat sesuai kode, membubuhkan cap/stempel, lalu mengarsipkan melalui scan"],
+    waktu:"Surat masuk 15 menit · Surat keluar 25 menit", biaya:"Gratis",
+    produk:"Disposisi surat dan Nomor Surat Keluar.",
+    pengaduan:"Masukan/saran ke Bagian Umum dan Protokol Setda Kab. Soppeng, atau email bappelitbangda663@gmail.com"
+  },
+  {
+    no:8, bidang:"Sekretariat", title:"Fasilitasi Peminjaman Ruang Rapat Gabungan Dinas",
+    persyaratan:["Membawa kartu identitas diri/kantor","Berpakaian rapi","Membawa surat permohonan peminjaman ruangan"],
+    prosedur:["Membawa surat permohonan ke Sekretariat Bappelitbangda","Menemui petugas yang bersangkutan","Permohonan diproses dengan melihat ketersediaan waktu & tanggal peminjaman","Menemui pejabat berkepentingan untuk konsultasi bila diperlukan"],
+    waktu:"20 menit (disesuaikan kebutuhan)", biaya:"Gratis",
+    produk:"Persetujuan Peminjaman Ruang Rapat Gabungan Dinas.",
+    pengaduan:"Pengaduan langsung, WhatsApp 085 255 283 177, atau email bappelitbangda663@gmail.com"
+  },
+  {
+    no:9, bidang:"Sekretariat", title:"Permintaan Data dan Informasi",
+    persyaratan:["Membawa kartu identitas diri/kantor","Berpakaian rapi","Membawa surat permintaan data"],
+    prosedur:["Membawa surat permintaan data ke Sekretariat Bappelitbangda","Menemui petugas yang bersangkutan","Permohonan diproses dengan melihat data yang diminta","Menemui pejabat terkait data yang diminta"],
+    waktu:"20 menit (disesuaikan kebutuhan)", biaya:"Gratis",
+    produk:"Data dan informasi sesuai permintaan.",
+    pengaduan:"Pengaduan langsung, WhatsApp 085 255 283 177, atau email bappelitbangda663@gmail.com"
+  }
+];
+
+const indirect = [
+  "Permohonan Usulan Kenaikan Pangkat Reguler dan Fungsional Umum",
+  "Permohonan Usulan Kenaikan Pangkat Pilihan/Pejabat Struktural",
+  "Permohonan Kenaikan Gaji Berkala (KGB)",
+  "Pengusulan Pensiun PNS BUP",
+  "Pengusulan Pensiun PNS Janda/Duda PNS Yang Meninggal",
+  "Pengusulan Cuti Tahunan (CT)",
+  "Pengusulan Cuti Besar (CBS)",
+  "Pengusulan Cuti Sakit (CS)",
+  "Pengusulan Cuti Bersalin (CBR)",
+  "Pengusulan Cuti Karena Alasan Penting (CAP)",
+  "Pengusulan Cuti Diluar Tanggungan Negara (CLTN)"
+];
+
+function renderList(arr){
+  const list = arr.map(s => `
+    <div class="svc" data-bidang="${s.bidang}">
+      <div class="svc-head" onclick="this.parentElement.classList.toggle('open'); const b=this.nextElementSibling; b.style.maxHeight = this.parentElement.classList.contains('open') ? b.scrollHeight+'px' : null;">
+        <div class="svc-head-left">
+          <span class="svc-no">${String(s.no).padStart(2,'0')}</span>
+          <div class="svc-title">
+            <h3>${s.title}</h3>
+            <div class="svc-tags"><span class="tag bidang">${s.bidang}</span><span class="tag">${s.waktu}</span><span class="tag">${s.biaya}</span></div>
+          </div>
+        </div>
+        <div class="svc-toggle">+</div>
+      </div>
+      <div class="svc-body">
+        <div class="svc-body-inner">
+          <div>
+            <div class="field-label">① Persyaratan</div>
+            <div class="field-body"><ul>${s.persyaratan.map(p=>`<li>${p}</li>`).join('')}</ul></div>
+          </div>
+          <div>
+            <div class="field-label">② Sistem, Mekanisme & Prosedur</div>
+            <div class="field-body"><ul>${s.prosedur.map(p=>`<li>${p}</li>`).join('')}</ul></div>
+          </div>
+          <div>
+            <div class="field-label">③ Jangka Waktu Pelayanan</div>
+            <div class="field-body">${s.waktu}</div>
+          </div>
+          <div>
+            <div class="field-label">④ Biaya / Tarif</div>
+            <div class="field-body">${s.biaya}</div>
+          </div>
+          <div class="field-full field-highlight">
+            <div class="field-label">⑤ Produk Layanan</div>
+            <div class="field-body">${s.produk}</div>
+          </div>
+          <div class="field-full">
+            <div class="field-label">⑥ Penanganan Pengaduan, Saran & Masukan</div>
+            <div class="field-body">${s.pengaduan}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('svcList').innerHTML = list;
+}
+renderList(services);
+
+document.getElementById('filterBar').addEventListener('click', e=>{
+  if(!e.target.classList.contains('chip')) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  e.target.classList.add('active');
+  const f = e.target.dataset.f;
+  const filtered = f==='all' ? services : services.filter(s=>s.bidang===f);
+  renderList(filtered);
+});
+
+document.getElementById('indirectBody').innerHTML = indirect.map((n,i)=>`
+  <tr><td class="idx">${i+1}.</td><td>${n}</td><td>Sekretariat</td></tr>
+`).join('');
+</script>
+
+</body>
+</html>
